@@ -740,7 +740,7 @@ function rotate (shape,index){
 var div = document.createElement("div");
 div.setAttribute("id", "container");
 
-function createPoster(csvdata, num){
+function createPosters(csvdata, num){
 
 	var subdiv = document.createElement("div");
 	subdiv.setAttribute("id", "poster"+num);
@@ -1002,6 +1002,7 @@ var compare = function(prop){
 	}
 }
 
+
 var posterStart = 0, posterEnd=100, posterGap=1;
 
 
@@ -1011,33 +1012,20 @@ $("#setting-confirm").click(function(){
 	posterGap = parseInt($("#poster-gap").val())
 	$("#container").empty()
 	drawList = []
-	createPosters(posterStart, posterEnd, posterGap)
+	setPoster(posterStart, posterEnd, posterGap)
 })
 
 
-
-// var path = window.location.pathname;
-// var dataPath;
-
-// if(path=="/result.html"){
-// 	dataPath = "js/result.csv"
-// }
-// else if(path=="/generator.html"){
-// 	dataPath = "js/record_new.csv"
-// }
-
 var dataPath = "js/record_new.csv"
 
-createPosters(posterStart, posterEnd, posterGap)
+setPoster(posterStart, posterEnd, posterGap)
 
-
-function createPosters(start,end,gap){
+function setPoster(start,end,gap){
 	$.get(dataPath,function(data){
 		var features = csv2array(data)
 		if(end>features.length)
 			end = features.length
 		for (var i = start; i < end; i+=gap){
-			// console.log(features[i])
 			var element = {"data":features[i].slice(0,15),"index":features[i][14],"name":"element"},
 				element2 = {"data":features[i].slice(15,30),"index":features[i][29],"name":"element"},
 				element3 = {"data":features[i].slice(30,45),"index":features[i][44],"name":"element"},
@@ -1068,8 +1056,7 @@ function createPosters(start,end,gap){
 			sortedPoster.push(text)
 			sortedPoster.push(bg)
 
-			// console.log(poster)
-			createPoster(poster,(i-start)/gap)
+			createPosters(poster,(i-start)/gap)
 		}
 
 		//for inspecting the elements behind the big shapes.
