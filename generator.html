@@ -2,61 +2,31 @@
 <html>
 <head>
   <title>SVG.js</title>
-  <style type="text/css">
-  	#container{
-  		display: flex;
-  		flex-direction: row;
-  		flex-wrap: wrap;
-  		background-color: #262626;
-  	}
-  	div{
-  		margin: 5px;
-  	}
-
-    .far:hover, svg:hover{
-      transform: scale(1.1);
-    }
-
-    svg{
-      transition: all 0.5s;
-    }
-    
-    .far, .fas{
-      transition: all 0.2s;
-      color: #FDE9EB;
-      margin-left: 10px;
-      margin-right: 10px;
-    }
-    
-    div.rating{
-      text-align: center;
-    }
-
-
-    @font-face {
-      font-family: 'DINPro-Bold';
-      src: url('./fonts/DINPro-Bold.ttf') format('truetype')
-    }
-
-    @font-face {
-      font-family: 'DINPro-Light';
-      src: url('./fonts/DINPro-Light.ttf') format('truetype')
-
-    }
-    @font-face {
-      font-family: 'Gotham-Bold';
-      src: url('./fonts/Gotham-Bold.otf') format('opentype')
-    }
-    @font-face {
-      font-family: 'Gotham-Light';
-      src: url('./fonts/Gotham-Light.otf') format('opentype')
-    }
-  </style>
 </head>
 <body>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-  <script type="text/javascript" src="js/jquery.min.js"></script>
-  <script type="text/javascript" src="js/svg.js"></script>
-  <script type="text/javascript" src="js/generator.js"></script>
+	<button class="btn btn-primary" data-toggle="modal" data-target="#myModal">设置海报显示</button>
+	<!-- 模态框（Modal） -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-body">
+	            	开始的海报index:<input id="poster-start" type="text" class="form-control" placeholder="0" value="0">
+	            	结束的海报index:<input id="poster-end" type="text" class="form-control" placeholder="100" value="100">
+	            	间隔的海报数量:<input id="poster-gap" type="text" class="form-control" placeholder="1" value="1">
+	        	</div>
+	            <div class="modal-footer">
+	                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+	                <button id="setting-confirm" type="button" class="btn btn-primary" data-dismiss="modal">提交更改</button>
+	            </div>
+	        </div><!-- /.modal-content -->
+	    </div><!-- /.modal -->
+	</div>
+  <div id="test"></div>
+  <script type="text/javascript" src="js/lib/jquery.min.js"></script>
+  <script type="text/javascript" src="js/lib/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+  <script type="text/javascript" src="js/lib/svg.js"></script>
+  <script type="text/javascript" src="js/generator_new.js"></script>
 </body>
 </html>
