@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "async": "^2.6.1",
+    "async": "^2.6.4",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
     "jshint": "^2.9.7",
